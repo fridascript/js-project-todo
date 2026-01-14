@@ -1,7 +1,7 @@
-Counter.jsx
+// Counter.jsx
 
-Visar t.ex:
+// Visar t.ex:
 
-“5 tasks added”
+// “5 tasks added”
 
-“3 tasks completed”
+// “3 tasks completed”

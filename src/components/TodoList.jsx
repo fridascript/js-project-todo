@@ -1,4 +1,3 @@
-// TodoList.jsx
 import { useState } from "react";
 import styled from "styled-components";
 import { useTodoStore } from "../store/useTodoStore.jsx";

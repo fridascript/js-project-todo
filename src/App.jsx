@@ -1,5 +1,16 @@
+import { TodoList } from "./components/TodoList.jsx";
+import { DoneTasks } from "./components/DoneTasks.jsx";
+import { TodoPageWrapper } from "./components/Pagewrapper.jsx";
+
+
+
+
 export const App = () => {
   return (
-    <h1>React Boilerplate</h1>
+    <main>
+      <section>
+        <TodoPageWrapper />
+      </section>
+    </main>
   )
 }

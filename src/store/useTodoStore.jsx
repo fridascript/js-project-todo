@@ -6,16 +6,6 @@ export const useTodoStore = create((set) => ({
     { id: 2, text: "Listen to the new Olivia Dean album", completed: false },
   ],
 
-
-  toggleTodo: (id) =>
-    set((state) => ({
-      todos: state.todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      ),
-
-    })),
   addTodo: (text) =>
     set((state) => ({
       todos: [
@@ -27,6 +17,23 @@ export const useTodoStore = create((set) => ({
         },
       ],
     })),
+
+
+  toggleTodo: (id) =>
+    set((state) => ({
+      todos: state.todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      ),
+
+    })),
+
+
+removeTodo: (id) => 
+  set((state) => ({
+    todos: state.todos.filter((todo) => todo.id !== id),
+  })),
 }));
 
 

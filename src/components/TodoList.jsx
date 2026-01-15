@@ -2,6 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useTodoStore } from "../store/useTodoStore.jsx";
 import { TodoItem } from "./TodoItem.jsx";
+import { Counter } from "./Counter.jsx";
+
 
 const Title = styled.h1`
 font-size: 40px;
@@ -52,6 +54,7 @@ export const TodoList = () => {
   const addTodo = useTodoStore((state) => state.addTodo);
   const [text, setText] = useState("");
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!text.trim()) return;
@@ -64,6 +67,7 @@ export const TodoList = () => {
       <Title>
         TO DO
       </Title>
+     <Counter/>
       <TodoCard>
         <Form onSubmit={handleSubmit}>
           <CustomCheckbox />

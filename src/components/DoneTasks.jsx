@@ -16,6 +16,7 @@ const DoneCard = styled.section`
 
   @media (min-width: 1024px) {
    width:450px; 
+   margin-right: 30px;
   }
 `;
 

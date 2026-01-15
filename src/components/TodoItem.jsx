@@ -6,15 +6,19 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 list-style: none;
-opacity: ${({ $completed }) => ($completed ? 0.8 : 1)};
+margin: 10px;
+`;
+
+const Text = styled.span`
+opacity: ${({ $completed }) => ($completed ? 0.5 : 1)};
 text-decoration: ${({ $completed }) => ($completed ? "line-through" : "none")};
 text-decoration-color: #9B9DFF;
 text-decoration-thickness: 2px;
-margin: 10px;
 `;
 
 const Label = styled.label`
   cursor: pointer;
+  flex: 1;
 `;
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
@@ -32,15 +36,21 @@ const CustomCheckbox = styled.span`
   background-color: ${({ $completed }) => ($completed ? "#9B9DFF" : "transparent")};
 `;
 
-const Button = styled.button`
+const RemoveButton = styled.button`
 border: none;
 background: none; 
-display:flex;
+display: inline-flex;
+cursor: pointer;
+transition: transform 0.15s ease;
 
+&:hover {
+  transform: scale(1.2);
+}
 `;
 
 export const TodoItem = ({ todo }) => {
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
+  const removeTodo = useTodoStore((state) => state.removeTodo);
 
   return (
     <Item $completed={todo.completed}>
@@ -50,9 +60,15 @@ export const TodoItem = ({ todo }) => {
           onChange={() => toggleTodo(todo.id)}
         />
         <CustomCheckbox $completed={todo.completed} />
-        <span>{todo.text}</span>
+        <Text  $completed={todo.completed}>
+          {todo.text}</Text>
       </Label>
-      <Button>🗑️</Button>
+      <RemoveButton onClick={(e) => {
+      e.stopPropagation()
+      removeTodo(todo.id)
+    }}> 
+      🗑️
+      </RemoveButton>
     </Item>
   );
 };

@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { useTodoStore } from "../../store/useTodoStore";
 
-
+//styling for component
 const CounterText = styled.p`
   display: flex;
   justify-content: left;
   font-size: 14px;
-  color: #9B9DFF;
+  color: #5F62FC;
 `;
 
+//component to show count of Todo-tasks used in "TodoList.jsx"
 export const TodoCounter = () => {
 const todos = useTodoStore((state) => state.todos);
 

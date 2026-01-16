@@ -1,10 +1,14 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware"
 
-export const useTodoStore = create((set) => ({
-  todos: [
-    { id: 2, text: "Listen to the Rosalia's album", completed: false },
-  ],
 
+export const useTodoStore = create(
+  //zustand store (local storage of todo-tasks)
+  persist (
+  (set) => ({
+  todos: [],
+
+  //adds new todo to list
   addTodo: (text) =>
     set((state) => ({
       todos: [
@@ -17,7 +21,7 @@ export const useTodoStore = create((set) => ({
       ],
     })),
 
-
+//toggles the status of the todo (todo/done)
   toggleTodo: (id) =>
     set((state) => ({
       todos: state.todos.map((todo) =>
@@ -28,19 +32,18 @@ export const useTodoStore = create((set) => ({
 
     })),
 
-
+//deletes todo from list
 removeTodo: (id) => 
   set((state) => ({
     todos: state.todos.filter((todo) => todo.id !== id),
   })),
-}));
+}),
+{
+  name: "storage",
+}
+  )
+);
 
 
 
 
-// {
-//   todos: [], ⚡️
-//     addTodo: () => { },
-//       toggleTodo: () => { },
-//         removeTodo: () => { }
-// }

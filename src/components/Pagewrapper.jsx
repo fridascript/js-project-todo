@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { TodoList } from "./TodoList.jsx";
 import { DoneTasks } from "./DoneTasks.jsx";
 
+//styling for component
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column; 
@@ -15,6 +16,7 @@ const PageWrapper = styled.div`
   }
 `;
 
+//component to wrap both boxes (mostly used for styling)
 export const TodoPageWrapper = () => {
   return (
     <PageWrapper>

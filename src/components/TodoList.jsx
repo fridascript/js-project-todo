@@ -2,19 +2,30 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useTodoStore } from "../store/useTodoStore.jsx";
 import { TodoItem } from "./TodoItem.jsx";
-import { Counter } from "./Counter.jsx";
+import { TodoCounter } from "./Counter/TodoCounter.jsx";
 
+
+const TodoSection = styled.section`
+  display: flex;
+  flex-direction: column; 
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+  }
+`;
 
 const Title = styled.h1`
 font-size: 40px;
-margin-bottom:0px;
+margin: 0px;
 `;
 
 const TodoCard = styled.section`
 border: 1px solid black;
 border-radius: 5px;
 max-width: 80%;
-height: 200px;
+height: auto;
+min-height: 200px;
+margin-bottom: 20px;
 
  @media (min-width: 1024px) {
    width:450px; 
@@ -64,10 +75,11 @@ export const TodoList = () => {
 
   return (
     <>
+    <TodoSection>
       <Title>
         TO DO
       </Title>
-     <Counter/>
+     <TodoCounter/>
       <TodoCard>
         <Form onSubmit={handleSubmit}>
           <CustomCheckbox />
@@ -86,6 +98,7 @@ export const TodoList = () => {
             ))}
         </List>
       </TodoCard>
+      </TodoSection>
     </>
   );
 };

@@ -2,8 +2,7 @@ import { create } from "zustand";
 
 export const useTodoStore = create((set) => ({
   todos: [
-    { id: 1, text: "Buy apples", completed: false },
-    { id: 2, text: "Listen to the new Olivia Dean album", completed: false },
+    { id: 2, text: "Listen to the Rosalia's album", completed: false },
   ],
 
   addTodo: (text) =>

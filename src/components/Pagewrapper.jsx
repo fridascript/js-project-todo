@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
     align-items: center; 
     justify-content: center; 
     gap: 40px;
-    margin-top: 300px;
+    margin-top: 200px;
   }
 `;
 
@@ -19,7 +19,6 @@ export const TodoPageWrapper = () => {
   return (
     <PageWrapper>
       <TodoList />
-      <div> → </div>
       <DoneTasks />
     </PageWrapper>
   );

@@ -1,12 +1,5 @@
-// Counter.jsx
-
-// Visar t.ex:
-
-// “5 tasks added”
-
-// “3 tasks completed”
 import styled from "styled-components";
-import { useTodoStore } from "../store/useTodoStore";
+import { useTodoStore } from "../../store/useTodoStore";
 
 
 const CounterText = styled.p`
@@ -16,12 +9,13 @@ const CounterText = styled.p`
   color: #9B9DFF;
 `;
 
-export const Counter = () => {
+export const TodoCounter = () => {
 const todos = useTodoStore((state) => state.todos);
 
 const uncompletedCount = todos.filter(
   (todo) => !todo.completed
 ).length;
+
 
 return (
   <CounterText>
